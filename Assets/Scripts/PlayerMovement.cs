@@ -14,7 +14,7 @@ public class PlayerMovement : MonoBehaviour
     const string RUN_ANIMATION = "Run_an";
     const string PICKAXE_ATTACK_ANIMATION = "Pickaxe_an";
     private float horizontal;
-    private float speed = 5f;
+    public float speed = 5f;
     private float jumpingPower = 13f;
     private bool isFacingRight = true;
     private bool isJumpPressed;
@@ -37,6 +37,14 @@ public class PlayerMovement : MonoBehaviour
      {
         animator = GetComponent<Animator>();
      }
+
+     public Rigidbody2D PlayerRigidbody
+    {
+    get { return rb; }
+    set { rb = value; }
+    }
+
+     
      
 
 
