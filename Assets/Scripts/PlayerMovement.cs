@@ -21,11 +21,17 @@ public class PlayerMovement : MonoBehaviour
     private bool isAttacking;
     private bool isAttackingPressed;
 
+    public Transform attackHitBox;
+    public float attackRange = 0.5f;
+    public LayerMask enemyLayers;
+
     private float coyoteTime = 0.2f;
      private float coyoteTimeCounter;
 
      private float jumpBufferTime = 0.2f;
      private float jumpBufferCounter;
+
+     public int damageToGive;
    
      [SerializeField] private Rigidbody2D rb;
      [SerializeField] private Transform groundCheck;
@@ -38,6 +44,9 @@ public class PlayerMovement : MonoBehaviour
         animator = GetComponent<Animator>();
      }
 
+
+    // So I can make the Rigidbody acccessible to othe scripts 
+    //While keeping the main one private with the player controller
      public Rigidbody2D PlayerRigidbody
     {
     get { return rb; }
@@ -137,7 +146,7 @@ public class PlayerMovement : MonoBehaviour
             if(!isAttacking)
             {
                 isAttacking = true;
-                ChangeAnimationState(PICKAXE_ATTACK_ANIMATION);
+                Attack();
 
             }
             Invoke("AttackComplete", attackDelay);
@@ -147,6 +156,29 @@ public class PlayerMovement : MonoBehaviour
 
         
 
+    }
+
+    void Attack()
+    {
+        ChangeAnimationState(PICKAXE_ATTACK_ANIMATION);
+        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackHitBox.position, attackRange, enemyLayers);
+
+        foreach(Collider2D enemy in hitEnemies)
+        {
+            Debug.Log("we hit" + enemy.name);
+            enemy.GetComponent<EnemyHealthManager>().giveDamage(damageToGive);
+            
+        }
+
+
+    }
+
+    void OnDrawGizmosSelected()
+    {
+        if (attackHitBox == null)
+            return;
+
+        Gizmos.DrawWireSphere(attackHitBox.position, attackRange);
     }
 
     void AttackComplete()
