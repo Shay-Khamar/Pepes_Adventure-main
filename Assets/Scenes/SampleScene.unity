@@ -8764,6 +8764,7 @@ GameObject:
   - component: {fileID: 470201656}
   - component: {fileID: 470201655}
   - component: {fileID: 470201657}
+  - component: {fileID: 470201658}
   m_Layer: 7
   m_Name: Enemy
   m_TagString: Untagged
@@ -8834,7 +8835,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: ed7bb23d577d72c46af80cb6800b1489, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 2.56, y: 2.56}
@@ -8851,10 +8852,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 470201651}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.411, y: 1.358, z: 0}
+  m_LocalPosition: {x: 6.06, y: 1.358, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1053483495}
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -8919,7 +8921,29 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnemyHealth: 3
   pointsOnDeath: 200
-  takingDamgae: 0
+  takingDamage: 0
+--- !u!114 &470201658
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 470201651}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80c8eb33bd02ce8438c8e06d94b8116c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 2
+  originalSpeed: 2
+  erb: {fileID: 470201656}
+  groundLayers:
+    serializedVersion: 2
+    m_Bits: 8
+  groundCheck: {fileID: 1053483495}
+  healthManager: {fileID: 0}
+  startDazedTime: 1
+  isStunned: 1
 --- !u!4 &498781198 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7544081304955485566, guid: 0cd38543a8bd0b141b004d7dbdaa2333, type: 3}
@@ -27671,6 +27695,37 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1053483494
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1053483495}
+  m_Layer: 7
+  m_Name: GroundCheck
+  m_TagString: Untagged
+  m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1053483495
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1053483494}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.27, y: -0.279, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 470201654}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1075012937
 GameObject:
   m_ObjectHideFlags: 0

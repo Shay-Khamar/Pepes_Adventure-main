@@ -9,7 +9,7 @@ public class EnemyHealthManager : MonoBehaviour
 
     public int pointsOnDeath;
 
-    public bool takingDamgae;
+    public bool takingDamage;
 
 
     // Start is called before the first frame update
@@ -30,8 +30,8 @@ public class EnemyHealthManager : MonoBehaviour
 
     public void giveDamage(int damageToGive)
     {
-        takingDamgae = true;
+        takingDamage = true;
         EnemyHealth -= damageToGive;
-        takingDamgae = false;
+        takingDamage = false;
     }
 }

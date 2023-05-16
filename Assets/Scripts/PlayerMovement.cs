@@ -136,6 +136,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
         if(isJumpPressed = true && !isGrounded() && !isAttacking){
+            
             ChangeAnimationState(JUMP_ANIMATION);
         }
 
