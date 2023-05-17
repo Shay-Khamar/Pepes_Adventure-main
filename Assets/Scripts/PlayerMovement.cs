@@ -43,6 +43,7 @@ public class PlayerMovement : MonoBehaviour
      void Start()
      {
         animator = GetComponent<Animator>();
+        Move(Input.GetAxisRaw("Horizontal"));
      }
 
 
@@ -61,7 +62,7 @@ public class PlayerMovement : MonoBehaviour
   
     void Update()
     {
-        Move(Input.GetAxisRaw("Horizontal")); 
+         
         /*Returns a raw value of the axis input. Which means it will return either -1,0 or 1 Depending on the direction of the input
         -1 = (left,down), 1 = (right,up) 0 = there is no input*/
         //horizontal = Input.GetAxisRaw("Horizontal");
@@ -129,7 +130,8 @@ public class PlayerMovement : MonoBehaviour
 
      public void Move(float moveInput)
     {
-         horizontal = moveInput; 
+         horizontal = moveInput;
+        
     }
     /*Fixed update is a method used in Unity used for physics calculations.
     Its a special function that runs a fixed number of times per second.
