@@ -5,7 +5,6 @@ using UnityEngine;
 public class PatrolEnemy : MonoBehaviour
 {
     public float speed = 2f;
-    public float originalSpeed;
     public Rigidbody2D erb;
     public LayerMask groundLayers;
 
@@ -17,34 +16,12 @@ public class PatrolEnemy : MonoBehaviour
 
      public EnemyHealthManager healthManager;
     
-    private float dazedTime;
-
-    public float startDazedTime;
-    public bool isStunned;
-
+   
     // Update is called once per frame
     void Update()
     {
         hit = Physics2D.Raycast(groundCheck.position, -transform.up, 1f, groundLayers);
-        if(healthManager.takingDamage && healthManager.EnemyHealth > 0)
-        {
-            isStunned = true;
-            dazedTime = startDazedTime;
-        }
-
-        if(isStunned)
-        {
-            if (dazedTime > 0)
-            {
-                speed = 0;
-                dazedTime -= Time.deltaTime;
-            }
-            else
-            {
-                speed = originalSpeed;
-                isStunned = false;
-            }
-        }
+        
     }
     
     private void FixedUpdate()

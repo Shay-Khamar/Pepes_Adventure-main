@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -59,10 +60,11 @@ public class PlayerMovement : MonoBehaviour
 
   
     void Update()
-    {   
+    {
+        Move(Input.GetAxisRaw("Horizontal")); 
         /*Returns a raw value of the axis input. Which means it will return either -1,0 or 1 Depending on the direction of the input
         -1 = (left,down), 1 = (right,up) 0 = there is no input*/
-        horizontal = Input.GetAxisRaw("Horizontal");
+        //horizontal = Input.GetAxisRaw("Horizontal");
         //This allows a brief window which allows the player to jump even though they are not touching the ground
         //Just like coyote not falling straight away when he runs off the edge in roadrunner.
 
@@ -76,6 +78,7 @@ public class PlayerMovement : MonoBehaviour
 
         }
         //Allows the player buffer a jump while they are in the air, strictly a game feel thing.
+        
         if(Input.GetButtonDown("Jump"))
         {
             jumpBufferCounter = jumpBufferTime;
@@ -101,14 +104,32 @@ public class PlayerMovement : MonoBehaviour
             rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
             coyoteTimeCounter = 0f;
 
-        }        
+        }
+
+        
+          
         Flip();
 
-        if(Input.GetMouseButtonDown(0))
-        {
-         isAttackingPressed = true;
-        }
+        //if(Input.GetMouseButtonDown(0))
+        //{
+        // PickAxe();
+       // }
         
+    }
+
+    public void Jump()
+    {
+        if(isGrounded())
+        {
+             isJumpPressed = true;
+             rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
+        }
+
+    }
+
+     public void Move(float moveInput)
+    {
+         horizontal = moveInput; 
     }
     /*Fixed update is a method used in Unity used for physics calculations.
     Its a special function that runs a fixed number of times per second.
@@ -159,6 +180,17 @@ public class PlayerMovement : MonoBehaviour
 
     }
 
+
+   
+    public void PickAxe()
+    {
+        isAttackingPressed = true;
+    }
+
+
+
+
+
     void Attack()
     {
         ChangeAnimationState(PICKAXE_ATTACK_ANIMATION);
@@ -185,6 +217,23 @@ public class PlayerMovement : MonoBehaviour
     void AttackComplete()
     {
         isAttacking = false;
+
+        if (isGrounded())
+    {
+        if (horizontal != 0f)
+        {
+            ChangeAnimationState(RUN_ANIMATION);
+            CreateDust();
+        }
+        else
+        {
+            ChangeAnimationState(IDLE_ANIMATION);
+        }
+    }
+    else
+    {
+        ChangeAnimationState(JUMP_ANIMATION);
+    }
     }
 
     private bool isGrounded()

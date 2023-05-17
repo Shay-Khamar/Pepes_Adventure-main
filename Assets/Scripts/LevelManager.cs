@@ -8,9 +8,12 @@ public class LevelManager : MonoBehaviour
     private PlayerMovement player;
     // Start is called before the first frame update
     public float respawnDelay;
+
+    public HealthManager healthManager;
     void Start()
     {
         player = FindObjectOfType<PlayerMovement>();
+        healthManager = FindObjectOfType<HealthManager>();
         
     }
 
@@ -37,6 +40,8 @@ public class LevelManager : MonoBehaviour
         player.transform.position = currentCheckpoint.transform.position;
         yield return new WaitForSeconds(respawnDelay);
         player.PlayerRigidbody.velocity = originalVelocity;
+        healthManager.FullHealth();
+        healthManager.isDead = false;
         player.enabled = true;
         player.GetComponent<Renderer>().enabled = true;
 

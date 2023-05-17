@@ -49,7 +49,7 @@ TextureImporter:
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spriteGenerateFallbackPhysicsShape: 1
+  spriteGenerateFallbackPhysicsShape: 0
   alphaUsage: 1
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
@@ -127,7 +127,259 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: GPJ_2D_Platformer_Buttons_0
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 44
+        width: 20
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: df681e302935bf34fa8e2a180a38b92f
+      internalID: 383158336
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GPJ_2D_Platformer_Buttons_1
+      rect:
+        serializedVersion: 2
+        x: 29
+        y: 43
+        width: 20
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 014f5f471238a414796dc960dc952d1a
+      internalID: 1108557551
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GPJ_2D_Platformer_Buttons_2
+      rect:
+        serializedVersion: 2
+        x: 61
+        y: 44
+        width: 20
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a4068b3aaabea6488f33320b9f16d54
+      internalID: 210062947
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GPJ_2D_Platformer_Buttons_3
+      rect:
+        serializedVersion: 2
+        x: 87
+        y: 44
+        width: 20
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ee0343b7fa81e04f9ca132d81d3856b
+      internalID: -1021172495
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GPJ_2D_Platformer_Buttons_4
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 25
+        width: 25
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 184e4d6f894b9264ebc3920ac67b29f2
+      internalID: -806506225
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GPJ_2D_Platformer_Buttons_5
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 24
+        width: 25
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1536048c42a688a44875d21977ff1f52
+      internalID: -1626775014
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GPJ_2D_Platformer_Buttons_6
+      rect:
+        serializedVersion: 2
+        x: 78
+        y: 24
+        width: 6
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 70aaf53ed5ec9ad428194eb3a2cc3623
+      internalID: 1718886902
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GPJ_2D_Platformer_Buttons_7
+      rect:
+        serializedVersion: 2
+        x: 87
+        y: 24
+        width: 6
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b76ffe4ce2280b49b313e8d76a55e87
+      internalID: -1939600454
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GPJ_2D_Platformer_Buttons_8
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 4
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ddf0102cec34204cadad9cb881e8b07
+      internalID: -1044110490
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GPJ_2D_Platformer_Buttons_9
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 4
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 47d123e2f2ea502428ec4e12135bca21
+      internalID: 427687000
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GPJ_2D_Platformer_Buttons_10
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 4
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f988b374c9bb10142acb988a9620590a
+      internalID: -577990012
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GPJ_2D_Platformer_Buttons_11
+      rect:
+        serializedVersion: 2
+        x: 87
+        y: 4
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f1daadeca16d1d4cba1e693be834168
+      internalID: -54492305
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -138,7 +390,19 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      GPJ_2D_Platformer_Buttons_0: 383158336
+      GPJ_2D_Platformer_Buttons_9: 427687000
+      GPJ_2D_Platformer_Buttons_6: 1718886902
+      GPJ_2D_Platformer_Buttons_7: -1939600454
+      GPJ_2D_Platformer_Buttons_11: -54492305
+      GPJ_2D_Platformer_Buttons_5: -1626775014
+      GPJ_2D_Platformer_Buttons_2: 210062947
+      GPJ_2D_Platformer_Buttons_3: -1021172495
+      GPJ_2D_Platformer_Buttons_10: -577990012
+      GPJ_2D_Platformer_Buttons_8: -1044110490
+      GPJ_2D_Platformer_Buttons_4: -806506225
+      GPJ_2D_Platformer_Buttons_1: 1108557551
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

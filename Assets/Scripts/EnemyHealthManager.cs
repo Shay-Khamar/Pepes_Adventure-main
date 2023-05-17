@@ -11,6 +11,8 @@ public class EnemyHealthManager : MonoBehaviour
 
     public bool takingDamage;
 
+    
+
 
     // Start is called before the first frame update
     void Start()
