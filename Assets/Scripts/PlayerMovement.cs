@@ -22,6 +22,7 @@ public class PlayerMovement : MonoBehaviour
     private bool isAttacking;
     private bool isAttackingPressed;
 
+
     public Transform attackHitBox;
     public float attackRange = 0.5f;
     public LayerMask enemyLayers;
@@ -133,6 +134,14 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    private IEnumerator RespawnPowerUp(GameObject powerUpObject,float respawnDelay)
+{
+    yield return new WaitForSeconds(respawnDelay);
+    powerUpObject.SetActive(true);
+}
+
+
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.CompareTag("PowerUp"))
@@ -140,6 +149,8 @@ public class PlayerMovement : MonoBehaviour
             collision.gameObject.SetActive(false);
             doubleJump = true;
         }
+
+        StartCoroutine(RespawnPowerUp(collision.gameObject, 5f));
     }
 
      public void Move(float moveInput)
