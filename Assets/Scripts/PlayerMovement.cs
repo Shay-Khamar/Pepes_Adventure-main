@@ -33,6 +33,8 @@ public class PlayerMovement : MonoBehaviour
      private float jumpBufferCounter;
 
      public int damageToGive;
+
+     public bool doubleJump;
    
      [SerializeField] private Rigidbody2D rb;
      [SerializeField] private Transform groundCheck;
@@ -43,7 +45,6 @@ public class PlayerMovement : MonoBehaviour
      void Start()
      {
         animator = GetComponent<Animator>();
-        Move(Input.GetAxisRaw("Horizontal"));
      }
 
 
@@ -62,7 +63,7 @@ public class PlayerMovement : MonoBehaviour
   
     void Update()
     {
-         
+         Move(Input.GetAxisRaw("Horizontal"));
         /*Returns a raw value of the axis input. Which means it will return either -1,0 or 1 Depending on the direction of the input
         -1 = (left,down), 1 = (right,up) 0 = there is no input*/
         //horizontal = Input.GetAxisRaw("Horizontal");
@@ -124,8 +125,21 @@ public class PlayerMovement : MonoBehaviour
         {
              isJumpPressed = true;
              rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
-        }
+        }else if (doubleJump)
+        {
+            doubleJump = false;
+            rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
 
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.CompareTag("PowerUp"))
+        {
+            collision.gameObject.SetActive(false);
+            doubleJump = true;
+        }
     }
 
      public void Move(float moveInput)
