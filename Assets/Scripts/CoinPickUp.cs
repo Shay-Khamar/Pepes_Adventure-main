@@ -13,10 +13,10 @@ public class CoinPickUp : MonoBehaviour
     {
         if(other.GetComponent<PlayerMovement>() == null)
         return;
-
+        collectionSoundEffect.Play();
         ScoreManager.AddPoints(pointsToAdd);
         Destroy (gameObject);
-        collectionSoundEffect.Play();
+      
 
     }
 }
