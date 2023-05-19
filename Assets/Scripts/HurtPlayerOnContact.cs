@@ -24,6 +24,16 @@ public class HurtPlayerOnContact : MonoBehaviour
          if(other.gameObject.CompareTag("Player"))
          {
             HealthManager.HurtPlayer(damageToGive);
+            var player = other.GetComponent<PlayerMovement>();
+            player.knockBackCount = player.knockBackLength;
+
+            if(other.transform.position.x < transform.position.x)
+            
+                player.knockFromRight = true;
+            else
+            
+                player.knockFromRight = false;
+            
 
          }
 

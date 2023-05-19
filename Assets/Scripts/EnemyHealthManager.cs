@@ -10,6 +10,8 @@ public class EnemyHealthManager : MonoBehaviour
     public int pointsOnDeath;
 
     public bool takingDamage;
+    PatrolEnemy patrolEnemy;
+    float stunDuration = 1f;
 
     
 
@@ -17,6 +19,7 @@ public class EnemyHealthManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+           patrolEnemy = GetComponent<PatrolEnemy>();
         
     }
 
@@ -34,6 +37,12 @@ public class EnemyHealthManager : MonoBehaviour
     {
         takingDamage = true;
         EnemyHealth -= damageToGive;
+
+         if (damageToGive == 1)
+    {
+        patrolEnemy.ApplyStun(stunDuration);
+    }
+
         takingDamage = false;
     }
 }

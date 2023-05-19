@@ -6,14 +6,17 @@ public class CoinPickUp : MonoBehaviour
 {
     public int pointsToAdd;
 
+    [SerializeField] private AudioSource collectionSoundEffect;
+
+
     void OnTriggerEnter2D (Collider2D other)
     {
         if(other.GetComponent<PlayerMovement>() == null)
         return;
 
         ScoreManager.AddPoints(pointsToAdd);
-
         Destroy (gameObject);
+        collectionSoundEffect.Play();
 
     }
 }

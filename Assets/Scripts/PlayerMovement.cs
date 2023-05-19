@@ -7,6 +7,7 @@ public class PlayerMovement : MonoBehaviour
 {
 
     public ParticleSystem Dust;
+    [SerializeField] private AudioSource jumpSoundeEffect;
 
 
     //Animation States
@@ -21,6 +22,10 @@ public class PlayerMovement : MonoBehaviour
     private bool isJumpPressed;
     private bool isAttacking;
     private bool isAttackingPressed;
+    public float knockBack;
+    public float knockBackCount;
+    public float knockBackLength;
+    public bool knockFromRight;
 
 
     public Transform attackHitBox;
@@ -98,7 +103,7 @@ public class PlayerMovement : MonoBehaviour
         {
             isJumpPressed = true;
             rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
-
+            jumpSoundeEffect.Play();
             jumpBufferCounter = 0f;
         }
 
@@ -126,6 +131,7 @@ public class PlayerMovement : MonoBehaviour
         {
              isJumpPressed = true;
              rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
+             jumpSoundeEffect.Play();
         }else if (doubleJump)
         {
             doubleJump = false;
@@ -166,7 +172,19 @@ public class PlayerMovement : MonoBehaviour
         /*Overall, this code is setting the velocity of a Rigidbody2D component based on the horizontal input (stored in the "horizontal" variable) 
         and a speed value (stored in the "speed" variable).
         This can be used to move the object left and right in response to user input*/
+        if(knockBackCount <= 0)
+        {
         rb.velocity = new Vector2(horizontal * speed, rb.velocity.y);
+        }else
+        {
+            if(knockFromRight)
+                rb.velocity = new Vector2(-knockBack, knockBack);
+            
+            if(!knockFromRight)
+                rb.velocity = new Vector2(knockBack, knockBack);
+                knockBackCount -= Time.deltaTime;
+            
+        }
 
         //This is for the change in animation, I don't want this to overriding, things like the jump animation so we check if we are grounded first
         if(isGrounded() && !isAttacking){
