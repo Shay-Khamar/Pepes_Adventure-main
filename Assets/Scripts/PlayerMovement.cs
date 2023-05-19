@@ -2,10 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
-
+using TMPro;
 public class PlayerMovement : MonoBehaviour
 {
     AudioManger audioManger;
+
+    public TextMeshProUGUI winText;
 
     public ParticleSystem Dust;
     [SerializeField] private AudioSource jumpSoundeEffect;
@@ -156,6 +158,10 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if(collision.tag == "Winzone")
+        {
+            winText.gameObject.SetActive(true);
+        }
         if(collision.CompareTag("PowerUp"))
         {
             audioManger.PlaySFX(audioManger.powerUP);
@@ -165,6 +171,8 @@ public class PlayerMovement : MonoBehaviour
 
         StartCoroutine(RespawnPowerUp(collision.gameObject, 5f));
     }
+
+    
 
      public void Move(float moveInput)
     {
