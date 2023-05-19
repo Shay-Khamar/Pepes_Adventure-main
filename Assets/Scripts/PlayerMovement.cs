@@ -103,7 +103,6 @@ public class PlayerMovement : MonoBehaviour
         {
             isJumpPressed = true;
             rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
-            jumpSoundeEffect.Play();
             jumpBufferCounter = 0f;
         }
 
@@ -131,7 +130,6 @@ public class PlayerMovement : MonoBehaviour
         {
              isJumpPressed = true;
              rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
-             jumpSoundeEffect.Play();
         }else if (doubleJump)
         {
             doubleJump = false;
