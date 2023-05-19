@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
+    AudioManger audioManger;
 
     public ParticleSystem Dust;
     [SerializeField] private AudioSource jumpSoundeEffect;
@@ -48,6 +49,11 @@ public class PlayerMovement : MonoBehaviour
      [SerializeField] private float attackDelay = 1f;
      Animator animator;
      private string currentState;
+
+     private void Awake()
+     {
+        audioManger = GameObject.FindGameObjectWithTag("AudioTag").GetComponent<AudioManger>();
+     }
      void Start()
      {
         animator = GetComponent<Animator>();
@@ -128,10 +134,12 @@ public class PlayerMovement : MonoBehaviour
     {
         if(isGrounded())
         {
+            audioManger.PlaySFX(audioManger.jump);
              isJumpPressed = true;
              rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
         }else if (doubleJump)
         {
+            audioManger.PlaySFX(audioManger.doubleJump);
             doubleJump = false;
             rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
 
@@ -150,6 +158,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if(collision.CompareTag("PowerUp"))
         {
+            audioManger.PlaySFX(audioManger.powerUP);
             collision.gameObject.SetActive(false);
             doubleJump = true;
         }
@@ -243,6 +252,7 @@ public class PlayerMovement : MonoBehaviour
         {
             Debug.Log("we hit" + enemy.name);
             enemy.GetComponent<EnemyHealthManager>().giveDamage(damageToGive);
+            audioManger.PlaySFX(audioManger.Hit);
             
         }
 
