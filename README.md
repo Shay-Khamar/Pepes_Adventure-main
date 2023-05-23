@@ -1,7 +1,7 @@
 # Pepes_Adventure-main
 2D platformer game "Pepe's Adventure" Programmed by Shay and Zayn.
 
-Sprites provided by Jamal.
+Sprites + Animations provided by Jamal.
 
 Includes the support for Android devices - touch controls.
 
